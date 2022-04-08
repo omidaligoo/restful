@@ -1,5 +1,11 @@
 package com.java.ticket;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Person {
 
 
@@ -12,6 +18,9 @@ public class Person {
         this.lastName=lastName;
         this.mobile=mobile;
     }
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "generator")
+    private Long id;
 
     private String firstName;
 
@@ -19,6 +28,9 @@ public class Person {
 
     private String mobile;
 
+    public Long  getId(){
+        return this.id;
+    }
 
     public String  getFirstName(){
         return this.firstName;
@@ -43,6 +55,10 @@ public class Person {
     public void setMobile(String mobile){
          this.mobile=mobile;
     }
+
+    public void setId(Long id){
+        this.id=id;
+   }
 
 
 }

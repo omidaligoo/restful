@@ -14,6 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PersonController {
 
+    
+    private final PersonRepository personRepository;
+
+    public PersonController(PersonRepository personRepository){
+        this.personRepository=personRepository;
+    }
+
 
     @GetMapping("/get-one-person/ver1")
     public Person getOnePerson()  {
@@ -30,6 +37,16 @@ public class PersonController {
         return personAAC;
     }
 
+
+    @GetMapping("/get-one-person-jpa/ver1")
+    public Person getOnePerson(@RequestParam(name = "id", defaultValue = "") Long id)  {
+
+       
+        Person person=personRepository.findById(id).get();
+
+        return person;
+    }
+
     @GetMapping("/get-person-list/ver1")
     public List<Person> getPersonList()  {
 
@@ -42,6 +59,15 @@ public class PersonController {
         personList.add(person1);
         personList.add(person2);
         personList.add(person3);
+
+        return personList;
+
+    }
+
+    @GetMapping("/get-person-list-jpa/ver1")
+    public List<Person> getPersonListWithJpa()  {
+
+        List<Person> personList= personRepository.findAll();
 
         return personList;
 
@@ -78,6 +104,19 @@ public class PersonController {
         System.out.println(person.getMobile());
 
         return person;
+    }
+
+    @PostMapping("/create-person-jpa")
+    public Person createWithJpa( @RequestBody Person person )  {
+        
+        System.out.println("firstName is :");
+        System.out.println(person.getFirstName());
+        System.out.println("lastName is :");
+        System.out.println(person.getLastName());
+        System.out.println("mobile is :");
+        System.out.println(person.getMobile());
+
+        return personRepository.save(person);
     }
     
 }
