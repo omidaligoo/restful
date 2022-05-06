@@ -1,8 +1,6 @@
 package com.java.ticket.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
@@ -16,11 +14,10 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class User  {
+public class GeneralUser {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "generator")
     private Long id;
     
     private String firstName;

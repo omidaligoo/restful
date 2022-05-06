@@ -19,8 +19,7 @@ public class Person {
         this.mobile=mobile;
     }
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "generator")
-    private Long id;
+      private Long id;
 
     private String firstName;
 
