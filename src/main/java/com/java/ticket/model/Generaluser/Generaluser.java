@@ -1,4 +1,4 @@
-package com.java.ticket.model;
+package com.java.ticket.model.Generaluser;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,7 +14,7 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class GeneralUser {
+public class Generaluser {
 
 
     @Id
