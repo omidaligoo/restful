@@ -1,6 +1,8 @@
 package com.java.ticket.model.Generaluser;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
@@ -18,8 +20,10 @@ public class Generaluser {
 
 
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-    
+
+
     private String firstName;
 
     private String lastName;
@@ -31,7 +35,6 @@ public class Generaluser {
     private String password;
 
     private Role role;
-
 
     public enum Role {
         USER,SUPPORT,ADMIN,TESTER
