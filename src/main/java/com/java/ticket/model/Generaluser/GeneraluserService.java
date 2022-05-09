@@ -3,7 +3,6 @@ package com.java.ticket.model.Generaluser;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class GeneraluserService {
         this.generaluserRepository = generaluserRepository;
     }
 
-    public List<Generaluser> findAllGeneraluser() {
+    public List<Generaluser> findAlluser() {
         return this.generaluserRepository.findAll();
     }
 
@@ -32,8 +31,7 @@ public class GeneraluserService {
     }
 
 
-    public ResponseEntity<String> DeleteUser(Generaluser generaluser, String id) {
-       this.generaluserRepository.delete(this.generaluser);
-        return ResponseEntity.ok(id);
+    public Generaluser DeleteUser(String id) {
+        return this.generaluserRepository.deleteById(generaluser);
     }
 }
