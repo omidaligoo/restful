@@ -1,28 +1,31 @@
-package com.java.ticket.model;
+package com.java.ticket.model.Generaluser;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
+import com.java.ticket.model.Issue.Issue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class User  {
+public class Generaluser {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "generator")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-    
+
+   @OneToMany
+   private List<Issue> isuue;
+
     private String firstName;
 
     private String lastName;
@@ -35,8 +38,8 @@ public class User  {
 
     private Role role;
 
-
     public enum Role {
         USER,SUPPORT,ADMIN,TESTER
     }
+
 }
