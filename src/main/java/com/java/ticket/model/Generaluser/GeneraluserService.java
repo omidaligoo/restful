@@ -31,7 +31,7 @@ public class GeneraluserService {
     }
 
 
-    public Generaluser DeleteUser(String id) {
+    public Generaluser DeleteUser(Generaluser generaluser, String id) {
         return this.generaluserRepository.deleteById(generaluser);
     }
 }

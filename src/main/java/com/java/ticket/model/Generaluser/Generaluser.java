@@ -23,13 +23,14 @@ public class Generaluser {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-   @OneToMany
+   @ManyToMany
    private List<Issue> isuue;
 
     private String firstName;
 
     private String lastName;
 
+    @Column(name = "ff",columnDefinition = "varchar(255)")
     private String email;
 
     private String username;

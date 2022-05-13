@@ -1,6 +1,8 @@
 package com.java.ticket.model.Generaluser;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,12 +33,7 @@ import java.util.List;
         return generaluserService.UpdateUser(generaluser, id);
     }
 
-    @RequestMapping(value = "/id", method = RequestMethod.DELETE)
-    public Generaluser DeleteUser(@RequestBody String id)
-    {
-        return generaluserService.DeleteUser(id);
     }
-}
 
 
 
