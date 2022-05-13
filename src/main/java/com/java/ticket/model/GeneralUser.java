@@ -1,9 +1,8 @@
-package com.java.ticket.model.Generaluser;
+package com.java.ticket.model;
 
 import javax.persistence.*;
 
 
-import com.java.ticket.model.Issue.Issue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,15 +15,14 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Generaluser {
+public class GeneralUser {
 
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-   @ManyToMany
-   private List<Issue> isuue;
+
 
     private String firstName;
 
@@ -42,5 +40,9 @@ public class Generaluser {
     public enum Role {
         USER,SUPPORT,ADMIN,TESTER
     }
+
+
+    @ManyToMany
+    private List<Issue> isuue;
 
 }

@@ -1,5 +1,3 @@
-package com.java.ticket.model;
-
 import javax.persistence.Entity;
 
 import lombok.AllArgsConstructor;
@@ -12,14 +10,12 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Issue {
+public class IssueCategory {
+
+  
+
+    private String name;
+
+    private String description;
     
-    private String context;
-
-    private String subject;
-
-    private Long categoryId;
-
-
-   
 }
