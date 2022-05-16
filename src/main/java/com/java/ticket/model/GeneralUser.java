@@ -28,8 +28,7 @@ public class GeneralUser {
 
     private String lastName;
 
-    @Column(name = "ff",columnDefinition = "varchar(255)")
-    private String email;
+     private String email;
 
     private String username;
 

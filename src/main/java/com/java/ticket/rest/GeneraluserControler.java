@@ -35,7 +35,11 @@ import com.java.ticket.service.GeneralUserService;
 
         return generalUserService.UpdateUser(generaluser, id);
     }
+    @RequestMapping(value = "/", method = RequestMethod.DELETE)
+    public GeneralUser DeleteUser(@RequestBody GeneralUser generaluser, String id) {
 
+        return generalUserService.DeleteUser(generaluser, id);
+    }
     }
 
 
