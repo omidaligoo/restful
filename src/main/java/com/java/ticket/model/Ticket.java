@@ -35,10 +35,14 @@ public class Ticket {
     @JoinColumn(name = "ticket_issue_id")
     private Issue ticketIssue;
 
+
+
     @OneToOne
     @JoinColumn(name = "ticket_user_id")
     private GeneralUser ticketUser;
 
+    // //you only need asked user Id;
+    // private Long generalUserId;
 
 
 }

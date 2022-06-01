@@ -36,12 +36,14 @@ public class GeneralUser {
 
     private Role role;
 
+    @ManyToMany
+    private List<Issue> isuuesList;
+
     public enum Role {
         USER,SUPPORT,ADMIN,TESTER
     }
 
 
-    @ManyToMany
-    private List<Issue> isuue;
+
 
 }

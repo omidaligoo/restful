@@ -8,7 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface TicketRepository extends ExtendedQuerydslJpaRepository<Ticket, Long> {
-//public interface TicketRepository extends JpaRepository<Ticket, Long>, QuerydslPredicateExecutor<Ticket>, QuerydslJpaFragment<Ticket> {
 
     Optional<Ticket> findById(long id);
 

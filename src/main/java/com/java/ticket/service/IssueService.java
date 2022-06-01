@@ -1,6 +1,7 @@
 
 package com.java.ticket.service;
 
+import com.java.ticket.dao.IssueDao;
 import com.java.ticket.model.Issue;
 import com.java.ticket.repository.IssueRepository;
 import org.springframework.stereotype.Service;
@@ -9,15 +10,14 @@ import java.util.Optional;
 
 @Service
 public class IssueService {
-    private final IssueRepository issueRepository;
+    private final IssueDao entityDao;
 
-    public IssueService(IssueRepository issueRepository) {
-        this.issueRepository = issueRepository;
+    public IssueService(IssueDao entityDao) {
+        this.entityDao = entityDao;
     }
 
     public Issue getById(long id) {
-        Optional<Issue> data = issueRepository.findById(id);
-         return null;
+        return entityDao.findById(id);
     }
 }
 

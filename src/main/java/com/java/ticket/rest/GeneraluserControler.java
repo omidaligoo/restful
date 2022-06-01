@@ -13,32 +13,31 @@ import com.java.ticket.service.GeneralUserService;
 @RestController
     @RequestMapping("/users")
     public class GeneraluserControler {
-    private final GeneralUserService generalUserService;
+    private final GeneralUserService entityService;
 
-    @Autowired
-    public GeneraluserControler(GeneralUserService generalUserService) {
-        this.generalUserService = generalUserService;
+    public GeneraluserControler(GeneralUserService entityService) {
+        this.entityService = entityService;
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<GeneralUser> getUser() {
-        return generalUserService.findAlluser();
+        return entityService.findAlluser();
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public GeneralUser RegisterUser(@RequestBody GeneralUser generaluser) {
-        return generalUserService.RegisterUser(generaluser);
+        return entityService.RegisterUser(generaluser);
     }
 
     @RequestMapping(value = "/", method = RequestMethod.PUT)
     public GeneralUser UpdateUser(@RequestBody GeneralUser generaluser, String id) {
 
-        return generalUserService.UpdateUser(generaluser, id);
+        return entityService.UpdateUser(generaluser, id);
     }
     @RequestMapping(value = "/", method = RequestMethod.DELETE)
     public GeneralUser DeleteUser(@RequestBody GeneralUser generaluser, String id) {
 
-        return generalUserService.DeleteUser(generaluser, id);
+        return entityService.DeleteUser(generaluser, id);
     }
     }
 

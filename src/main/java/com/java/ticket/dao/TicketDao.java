@@ -3,40 +3,43 @@ package com.java.ticket.dao;
 import com.java.ticket.model.Ticket;
 import com.java.ticket.repository.TicketRepository;
 import org.springframework.stereotype.Repository;
-//import static com.persifund.auth.model.QReturnName.returnName;
-import java.util.List;
 
-//import static com.java.ticket.model.QTicket.ticket;
-//import static com.infobip.spring.data.jpa.
+import java.util.List;
+import java.util.Optional;
+
+import static com.java.ticket.model.QTicket.ticket;
 
 @Repository
 public class TicketDao {
-    private final TicketRepository ticketRepository;
-    QTicket qTicket;
+    private final TicketRepository entityRepository;
+    
 
-    public TicketDao(TicketRepository ticketRepository) {
-        this.ticketRepository = ticketRepository;
+    public TicketDao(TicketRepository entityRepository) {
+        this.entityRepository = entityRepository;
     }
 
-    void shouldQuery() {
 
-        /*Ticket johnDoe = givenSavedPerson("John", "Doe");
-        givenSavedPerson("Johny", "Roe");
-        givenSavedPerson("Jane", "Doe");
-        givenSavedPerson("John", "Roe");
-        givenSavedPerson("Janie", "Doe");*/
+    public List<Ticket> findAll() {
+        return entityRepository.query(query -> query
+        .select(ticket)
+        .from(ticket)
+        .fetch());
+    }
 
+    public Ticket findById(long id) {
+        return entityRepository.query(query -> query
+        .select(ticket)
+        .from(ticket)
+        .where(ticket.id.eq(id))
+        .fetchOne());
+    }
 
-        /*List<Ticket> actual = ticketRepository.query(query -> query
-                .select(ticket)
-                .from(ticket)
-                .where(ticket.firstName.in("John", "Jane"))
-                .orderBy(ticket.firstName.asc(), ticket.lastName.asc())
-                .limit(1)
-                .offset(1)
-                .fetch());*/
+    public void save(Ticket entity) {
+        entityRepository.save(entity);
+    }
 
-        //then(actual).usingRecursiveFieldByFieldElementComparator().containsOnly(johnDoe);
+    public void deleteById(long id) {
+        entityRepository.deleteById(id);
     }
 
 }

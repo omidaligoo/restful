@@ -12,33 +12,39 @@ import java.util.Optional;
 public class TicketController {
 
     //should be final or not? if yes add final keyword and init in constructor
-    @Autowired
-    private TicketService ticketService;
+    /*
+    Answer: In a short words yes you should,you must use "final" becuase "autowierd" annotation create a bit confilict
+    */
+    private final TicketService entityService;
+
+    public TicketController(TicketService entityService) {
+        this.entityService = entityService;
+    }
 
     @GetMapping("/ticket")
     public List<Ticket> getAllTicket()
     {
-        return ticketService.getAllTickets();
+        return entityService.getAllTickets();
     }
 
     @GetMapping("/ticket/{id}")
-    public Optional<Ticket> getTicketById(@PathVariable long id)
+    public Ticket getTicketById(@PathVariable long id)
     {
-        return ticketService.getTicketById(id);
+        return entityService.getTicketById(id);
     }
 
     @PostMapping("/ticket/addTicket")
     public void addTicket(@RequestBody Ticket ticket){
-        ticketService.createTicket(ticket);
+        entityService.createTicket(ticket);
     }
 
     @PutMapping("/ticket/updateTicket")
     public void updateTicket(@RequestBody Ticket ticket, long id){
-        ticketService.updateTicket(ticket, id);
+        entityService.updateTicket(ticket, id);
     }
 
     @DeleteMapping("/ticket/deleteTicket")
     public void deleteTicket(@PathVariable long id){
-        ticketService.deleteTicket(id);
+        entityService.deleteTicket(id);
     }
 }
