@@ -9,4 +9,5 @@ public interface GeneralUserRepository extends ExtendedQuerydslJpaRepository<Gen
 {
 
   GeneralUser deleteById(GeneralUser generaluser);
+  GeneralUser findByEmail(String email);
 }
