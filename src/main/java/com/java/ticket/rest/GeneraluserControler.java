@@ -18,7 +18,7 @@ import com.java.ticket.model.GeneralUser;
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/users")
 public class GeneraluserControler {
     private final GeneralUserService generalUserService;
     private final AuthenticationManager manager;
@@ -30,22 +30,22 @@ public class GeneraluserControler {
         this.manager = manager;
         this.jwtUtils = jwtUtils;
     }
-     @RequestMapping(value = "/users", method = RequestMethod.GET)
+     @RequestMapping(value = "", method = RequestMethod.GET)
     public List<GeneralUser> getUser() {
         return generalUserService.findAlluser();
     }
 
-    @RequestMapping(value = "/users", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.POST)
     public GeneralUser RegisterUser(@RequestBody GeneralUser generaluser) {
         return generalUserService.RegisterUser(generaluser);
     }
 
-    @RequestMapping(value = "/users", method = RequestMethod.PUT)
+    @RequestMapping(value = "", method = RequestMethod.PUT)
     public GeneralUser UpdateUser(@RequestBody GeneralUser generaluser, String id) {
 
         return generalUserService.UpdateUser(generaluser, id);
     }
-    @RequestMapping(value = "/users", method = RequestMethod.DELETE)
+    @RequestMapping(value = "", method = RequestMethod.DELETE)
     public GeneralUser DeleteUser(@RequestBody GeneralUser generaluser, String id) {
 
         return generalUserService.DeleteUser(generaluser, id);
