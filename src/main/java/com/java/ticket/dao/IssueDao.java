@@ -35,19 +35,20 @@ public class IssueDao {
     public Issue save(Issue entity) {
         return entityRepository.save(entity);
     }
-   /* public List<Issue> findAllByCategory(long categoryId) {
-        return entityRepository.query(query -> query
-                .select(issue)
-                .from(issue)
-                .where(issue.categoryId.eq(categoryId))
-                .fetch());
-    }*/
+
+    /* public List<Issue> findAllByCategory(long categoryId) {
+         return entityRepository.query(query -> query
+                 .select(issue)
+                 .from(issue)
+                 .where(issue.categoryId.eq(categoryId))
+                 .fetch());
+     }*/
     public List<Issue> findAllByActiveIsTrueAndSubjectContainsOrContextContains(String search) {
         return entityRepository.query(query -> query
                 .select(issue)
                 .from(issue)
-                .where(issue.active.eq(true).and(issue.subject.like(search,'%')).or
-                        (issue.context.like(search,'%'))).fetch());
+                .where(issue.active.eq(true).and(issue.subject.like(search, '%')).or
+                        (issue.context.like(search, '%'))).fetch());
     }
 
 }
