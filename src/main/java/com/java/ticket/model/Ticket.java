@@ -12,19 +12,15 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Ticket {
+public class Ticket extends com.java.ticket.basic.model.GeneralDomain {
 
-    public enum ticketStatus{
+    public enum ticketStatus {
         NEW,
         ONHOLD,
         INPROGRESS,
         CLOSED
     }
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private long id;
-    
     //private long ticketNumber;
 
     private String description;
@@ -34,7 +30,6 @@ public class Ticket {
     @OneToOne
     @JoinColumn(name = "ticket_issue_id")
     private Issue ticketIssue;
-
 
 
     @OneToOne

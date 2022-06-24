@@ -3,11 +3,11 @@ package com.java.ticket.dao;
 import com.java.ticket.model.Ticket;
 import com.java.ticket.repository.TicketRepository;
 import org.springframework.stereotype.Repository;
+import static com.java.ticket.model.QTicket.ticket;
 
 import java.util.List;
-import java.util.Optional;
 
-import static com.java.ticket.model.QTicket.ticket;
+
 
 @Repository
 public class TicketDao {

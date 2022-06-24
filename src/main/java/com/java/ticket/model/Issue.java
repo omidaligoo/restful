@@ -1,28 +1,24 @@
 package com.java.ticket.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Issue {
+public class Issue extends com.java.ticket.basic.model.GeneralDomain {
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
-    
+
     private String context;
 
     private String subject;
@@ -32,5 +28,9 @@ public class Issue {
     @OneToOne
     @JoinColumn(name = "ticket_issue_id")
     private Issue ticketIssue;
-   
+
+  /*  @ManyToOne
+    @JoinColumn(name = "issue_issueCategory_id")
+    private Set<IssueCategory> category=new HashSet<IssueCategory>();*/
+
 }

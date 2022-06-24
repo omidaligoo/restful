@@ -1,6 +1,9 @@
 package com.java.ticket.model;
 
+import com.java.ticket.basic.model.GeneralDomain;
+
 import javax.persistence.*;
+
 import com.java.ticket.enums.Authority;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,6 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 import java.io.Serializable;
 import java.util.*;
 
@@ -17,11 +21,9 @@ import java.util.*;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class GeneralUser implements Serializable, UserDetails {
+public class GeneralUser extends com.java.ticket.basic.model.GeneralDomain implements Serializable, UserDetails {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
     private String firstName;
     private String lastName;
     private String email;
@@ -34,8 +36,9 @@ public class GeneralUser implements Serializable, UserDetails {
     private List<Issue> issuesList;
 
     public enum Role {
-        USER,SUPPORT,ADMIN,TESTER
+        USER, SUPPORT, ADMIN, TESTER
     }
+
     private Boolean enabled = true;
 
 
