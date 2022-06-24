@@ -46,8 +46,8 @@ public class IssueService {
         return entityRepository.save(oldIssue);
     }
 
-    public Issue delete(Issue issue, long id) {
-        return this.entityRepository.deleteById(issue, id);
+    public Issue delete( long id) {
+        return this.entityRepository.deleteById( id);
     }
 /*
     public List<Issue> findAllByCategory(long categoryId) {

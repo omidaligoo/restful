@@ -17,7 +17,7 @@ public class IssueControler {
         this.entityService = issueService;
     }
 
-    @GetMapping("")
+    @GetMapping("/")
     public List<Issue> findAll() {
         return entityService.findAll();
     }
@@ -43,7 +43,7 @@ public class IssueControler {
 
     @DeleteMapping("/delete")
     public void delete(@PathVariable Issue issue, long id) {
-        entityService.delete(issue, id);
+        entityService.delete(id);
     }
 
     @GetMapping("")

@@ -17,7 +17,7 @@ import static com.java.ticket.model.QTicket.ticket;
 @Repository
 public interface IssueRepository extends ExtendedQuerydslJpaRepository<Issue,Long> {
     Optional<Issue> findAllById(long id);
-    Issue deleteById(Issue issue,long id);
+    Issue deleteById(long id);
 
 
 
