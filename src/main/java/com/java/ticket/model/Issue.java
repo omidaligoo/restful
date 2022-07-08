@@ -33,4 +33,5 @@ public class Issue extends com.java.ticket.basic.model.GeneralDomain {
     @JoinColumn(name = "issue_issueCategory_id")
     private Set<IssueCategory> category=new HashSet<IssueCategory>();*/
 
+
 }

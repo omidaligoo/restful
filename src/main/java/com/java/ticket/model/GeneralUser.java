@@ -32,8 +32,6 @@ public class GeneralUser extends com.java.ticket.basic.model.GeneralDomain imple
 
     private Role role;
 
-    @ManyToMany
-    private List<Issue> issuesList;
 
     public enum Role {
         USER, SUPPORT, ADMIN, TESTER
@@ -44,6 +42,8 @@ public class GeneralUser extends com.java.ticket.basic.model.GeneralDomain imple
 
     @ManyToMany
     private List<Roles> roles;
+    @ManyToMany
+    private List<Issue> issueList;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

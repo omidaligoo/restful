@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 public class GeneralDomain {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "LONG", nullable = false, unique = true)
+   // @Column(columnDefinition = "LONG", nullable = false, unique = true)
     public long id;
 
     @Column(columnDefinition = "BIT", length = 1)

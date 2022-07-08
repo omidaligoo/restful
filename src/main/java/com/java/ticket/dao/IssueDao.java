@@ -1,13 +1,12 @@
 package com.java.ticket.dao;
 
+import com.java.ticket.model.Issue;
 import com.java.ticket.repository.IssueRepository;
 import org.springframework.stereotype.Repository;
 
-import static com.java.ticket.model.QIssue.issue;
-
 import java.util.List;
 
-import com.java.ticket.model.Issue;
+import static com.java.ticket.model.QIssue.issue;
 
 @Repository
 public class IssueDao {
