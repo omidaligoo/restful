@@ -2,6 +2,7 @@ package com.java.ticket.rest;
 
 import com.java.ticket.jwt.JwtAuth;
 import com.java.ticket.jwt.JwtUtils;
+import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.java.ticket.service.GeneralUserService;
 import org.springframework.http.HttpStatus;
@@ -45,10 +46,10 @@ public class GeneraluserControler {
 
         return generalUserService.UpdateUser(generaluser, id);
     }
-    @RequestMapping(value = "", method = RequestMethod.DELETE)
-    public GeneralUser DeleteUser(@RequestBody GeneralUser generaluser, String id) {
 
-        return generalUserService.DeleteUser(generaluser, id);
+    @DeleteMapping(value = "/Delete/{id}")
+     public void DeleteUser(@PathVariable long id){
+        generalUserService.DeleteUser(id);
     }
 
     @GetMapping("/login")

@@ -1,7 +1,6 @@
 package com.java.ticket.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -29,15 +28,6 @@ public class GeneralUserService implements UserDetailsService {
         return generaluserRepository.findAll();
     }
 
- /*   public GeneralUser findById(Long id) {
-        return generaluserRepository.getOne(id);
-    }*/
-
-    @PreAuthorize("#generaluser.email != authentication.name")
-    public void deleteById(GeneralUser generaluser) {
-        generaluserRepository.deleteById(generaluser.getId());
-    }
-
 
     public List<GeneralUser> findAlluser() {
         return this.generaluserRepository.findAll();
@@ -52,7 +42,8 @@ public class GeneralUserService implements UserDetailsService {
     }
 
 
-    public GeneralUser DeleteUser(GeneralUser generaluser, String id) {
-        return this.generaluserRepository.deleteById(generaluser);
+    public void DeleteUser(long id) {
+        generaluserRepository.deleteById(id);
     }
 }
+
