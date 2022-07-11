@@ -24,7 +24,7 @@ public class GeneralDomain {
     @Column(columnDefinition = "BIT", length = 1)
     private Boolean disabled;
 
-    @Column(columnDefinition = "BIT", length = 1)
+    @Column
     private Boolean active;
 
     @Version
