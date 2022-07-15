@@ -1,9 +1,6 @@
 package com.java.ticket.model;
 
-import com.java.ticket.basic.model.GeneralDomain;
-
 import javax.persistence.*;
-
 import com.java.ticket.enums.Authority;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,9 +18,11 @@ import java.util.*;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class GeneralUser extends com.java.ticket.basic.model.GeneralDomain implements Serializable, UserDetails {
+public class GeneralUser implements Serializable, UserDetails {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public long id;
     private String firstName;
     private String lastName;
     private String email;
