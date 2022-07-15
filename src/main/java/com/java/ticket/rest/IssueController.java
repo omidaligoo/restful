@@ -1,6 +1,5 @@
 package com.java.ticket.rest;
 
-import com.java.ticket.helper.exceptions.DataNotFoundException;
 import com.java.ticket.model.GeneralUser;
 import com.java.ticket.model.Issue;
 import com.java.ticket.service.IssueService;
@@ -11,10 +10,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/issue")
-public class IssueControler {
+public class IssueController {
     private final IssueService entityService;
 
-    public IssueControler(IssueService issueService) {
+    public IssueController(IssueService issueService) {
         this.entityService = issueService;
     }
 
@@ -33,14 +32,11 @@ public class IssueControler {
         entityService.register(issue);
     }
 
- @PutMapping("/update")
-    public void update(@RequestBody long id ,  Issue issue) {
-        try {
-            entityService.Update(id, issue);
-        } catch (DataNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-    }
+ @RequestMapping(value = "/Update", method = RequestMethod.PUT)
+ public Issue Update(@RequestBody Issue issue, String id) {
+
+     return entityService.Update(issue, id);
+ }
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable long id) {
         entityService.delete(id);

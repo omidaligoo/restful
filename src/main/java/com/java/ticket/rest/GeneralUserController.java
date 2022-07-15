@@ -20,28 +20,28 @@ import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping("/users")
-public class GeneraluserControler {
+public class GeneralUserController {
     private final GeneralUserService entityService;
     private final AuthenticationManager manager;
     private final JwtUtils jwtUtils;
 
     @Autowired
-    public GeneraluserControler(GeneralUserService generalUserService, AuthenticationManager manager, JwtUtils jwtUtils) {
+    public GeneralUserController(GeneralUserService generalUserService, AuthenticationManager manager, JwtUtils jwtUtils) {
         this.entityService = generalUserService;
         this.manager = manager;
         this.jwtUtils = jwtUtils;
     }
-     @RequestMapping(value = "", method = RequestMethod.GET)
+     @RequestMapping(value = "/get", method = RequestMethod.GET)
     public List<GeneralUser> get() {
         return entityService.findAll();
     }
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @RequestMapping(value = "/Register", method = RequestMethod.POST)
     public GeneralUser Register(@RequestBody GeneralUser generaluser) {
         return entityService.Register(generaluser);
     }
 
-    @RequestMapping(value = "", method = RequestMethod.PUT)
+    @RequestMapping(value = "/Update", method = RequestMethod.PUT)
     public GeneralUser Update(@RequestBody GeneralUser generaluser, String id) {
 
         return entityService.Update(generaluser, id);

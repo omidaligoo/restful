@@ -35,16 +35,9 @@ public class IssueService {
         this.entityDao.save(issue);
     }
 
-
-    public Issue Update(long id , Issue issue) throws DataNotFoundException {
-        Issue oldIssue = getById(issue.getId());
-        if (oldIssue == null) {
-            throw new DataNotFoundException("oldIssue with id " + issue.getId() + " not found");
-        }
-        oldIssue.setSubject(issue.getSubject());
-        oldIssue.setContext(issue.getContext());
-        return entityRepository.save(oldIssue);
-    }
+  public Issue Update(Issue issue, String id) {
+      return this.entityRepository.save(issue);
+  }
 
     public Issue delete( long id) {
         return this.entityRepository.deleteById( id);
