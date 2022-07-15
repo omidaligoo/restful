@@ -36,7 +36,7 @@ public class IssueService {
     }
 
 
-    public Issue update(Issue issue,long id) throws DataNotFoundException {
+    public Issue Update(long id , Issue issue) throws DataNotFoundException {
         Issue oldIssue = getById(issue.getId());
         if (oldIssue == null) {
             throw new DataNotFoundException("oldIssue with id " + issue.getId() + " not found");
@@ -54,7 +54,6 @@ public class IssueService {
         return entityDao.findAllByCategory(categoryId);
     }
 */
-
     public List<Issue> search(String keyword) {
         return entityDao.findAllByActiveIsTrueAndSubjectContainsOrContextContains(keyword);
     }

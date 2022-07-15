@@ -1,3 +1,4 @@
+/*
 package com.java.ticket.config;
 
 
@@ -14,12 +15,25 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @EnableWebMvc
 public class SpringFoxConfig {
-    @Bean
+  */
+/*  @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
                 .build();
-    }
+    }*//*
+
+  @Bean
+  public Docket api(){
+      return new Docket(DocumentationType.SWAGGER_2)
+              .select()
+              .paths(PathSelectors.ant("/.*"))
+              .apis(RequestHandlerSelectors.basePackage("com.java.ticket.rest"))
+              .build();
+
+  }
 }
+
+*/

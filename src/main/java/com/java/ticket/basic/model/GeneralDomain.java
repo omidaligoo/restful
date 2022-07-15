@@ -21,10 +21,12 @@ public class GeneralDomain {
    // @Column(columnDefinition = "LONG", nullable = false, unique = true)
     public long id;
 
-    @Column(columnDefinition = "BIT", length = 1)
+    @Column
+            //(columnDefinition = "BIT", length = 1)
     private Boolean disabled;
 
-    @Column(columnDefinition = "BIT", length = 1)
+    @Column
+            //(columnDefinition = "BIT", length = 1)
     private Boolean active;
 
     @Version

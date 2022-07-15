@@ -35,13 +35,6 @@ public class IssueDao {
         return entityRepository.save(entity);
     }
 
-    /* public List<Issue> findAllByCategory(long categoryId) {
-         return entityRepository.query(query -> query
-                 .select(issue)
-                 .from(issue)
-                 .where(issue.categoryId.eq(categoryId))
-                 .fetch());
-     }*/
     public List<Issue> findAllByActiveIsTrueAndSubjectContainsOrContextContains(String search) {
         return entityRepository.query(query -> query
                 .select(issue)

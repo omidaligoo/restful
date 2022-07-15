@@ -1,5 +1,6 @@
 package com.java.ticket.service;
 
+import com.java.ticket.model.Issue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,21 +13,21 @@ import java.util.List;
 
 @Service
 public class GeneralUserService implements UserDetailsService {
-    private final GeneralUserRepository generaluserRepository;
+    private final GeneralUserRepository entityRepository;
 
     @Autowired
     public GeneralUserService(GeneralUserRepository generaluserRepository) {
-        this.generaluserRepository = generaluserRepository;
+        this.entityRepository = generaluserRepository;
     }
 
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return generaluserRepository.findByEmail(email);
+        return entityRepository.findByEmail(email);
     }
 
     public List<GeneralUser> findAll() {
-        return generaluserRepository.findAll();
+        return entityRepository.findAll();
     }
 
  /*   public GeneralUser findById(Long id) {
@@ -35,24 +36,18 @@ public class GeneralUserService implements UserDetailsService {
 
     @PreAuthorize("#generaluser.email != authentication.name")
     public void deleteById(GeneralUser generaluser) {
-        generaluserRepository.deleteById(generaluser.getId());
+        entityRepository.deleteById(generaluser.getId());
     }
 
-
-    public List<GeneralUser> findAlluser() {
-        return this.generaluserRepository.findAll();
+    public GeneralUser Register(GeneralUser generaluser) {
+        return this.entityRepository.save(generaluser);
     }
 
-    public GeneralUser RegisterUser(GeneralUser generaluser) {
-        return this.generaluserRepository.save(generaluser);
+    public GeneralUser Update(GeneralUser generaluser, String id) {
+        return this.entityRepository.save(generaluser);
+    }
+    public GeneralUser delete(long id) {
+        return this.entityRepository.deleteById( id);
     }
 
-    public GeneralUser UpdateUser(GeneralUser generaluser, String id) {
-        return this.generaluserRepository.save(generaluser);
-    }
-
-
-    public GeneralUser DeleteUser(GeneralUser generaluser, String id) {
-        return this.generaluserRepository.deleteById(generaluser);
-    }
 }

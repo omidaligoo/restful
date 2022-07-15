@@ -8,6 +8,6 @@ import com.java.ticket.model.GeneralUser;
 public interface GeneralUserRepository extends ExtendedQuerydslJpaRepository<GeneralUser,Long>
 {
 
-  GeneralUser deleteById(GeneralUser generaluser);
+  GeneralUser deleteById(long id);
   GeneralUser findByEmail(String email);
 }

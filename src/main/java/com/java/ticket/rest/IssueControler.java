@@ -1,6 +1,7 @@
 package com.java.ticket.rest;
 
 import com.java.ticket.helper.exceptions.DataNotFoundException;
+import com.java.ticket.model.GeneralUser;
 import com.java.ticket.model.Issue;
 import com.java.ticket.service.IssueService;
 
@@ -17,12 +18,12 @@ public class IssueControler {
         this.entityService = issueService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/findAll")
     public List<Issue> findAll() {
         return entityService.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getById/{id}")
     public Issue getById(@PathVariable long id) {
         return entityService.getById(id);
     }
@@ -32,25 +33,25 @@ public class IssueControler {
         entityService.register(issue);
     }
 
-    @PutMapping("/update")
-    public void update(@RequestBody Issue issue, long id) {
+ @PutMapping("/update")
+    public void update(@RequestBody long id ,  Issue issue) {
         try {
-            entityService.update(issue, id);
+            entityService.Update(id, issue);
         } catch (DataNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
-
-    @DeleteMapping("/delete")
-    public void delete(@PathVariable Issue issue, long id) {
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable long id) {
         entityService.delete(id);
     }
 
-    @GetMapping("")
+    @GetMapping("/search")
     public List<Issue> search(@RequestParam String keyword) {
 
         List<Issue> result = entityService.search(keyword);
-        return entityService.search(String.valueOf((result)));
+       return entityService.search(String.valueOf((result)));
+
     }
    /* @GetMapping("/find")
     public List<Issue> find(@RequestParam long id) {
