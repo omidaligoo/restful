@@ -1,6 +1,5 @@
 package com.java.ticket.service;
 
-import com.java.ticket.model.Issue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -31,7 +31,7 @@ public class GeneralUserController {
         this.manager = manager;
         this.jwtUtils = jwtUtils;
     }
-     @RequestMapping(value = "/get", method = RequestMethod.GET)
+     @GetMapping(value = "/get")
     public List<GeneralUser> get() {
         return entityService.findAll();
     }
